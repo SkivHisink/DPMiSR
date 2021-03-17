@@ -2,7 +2,7 @@ import numpy as np
 import scipy
 import matplotlib
 from matplotlib import pyplot as plt
-#TODO: 
+#TODO:
 #1) Самому вычислять значения по x(freq) - Сделано, за это отвечает массив myxf в функции signaltest
 #2) Вычесть среднее из шума, чтобы изабвиться от пика в нуле - Сделано, нужно расскоментить строку mixed_tone-=np.mean(mixed_tone)
 #3) Поиграть с размерами ступеньки и посмотреть что будет происходить с преобразованием Фурье - если тоньше или ниже ступенька, то пик уменьшается. 
@@ -83,9 +83,9 @@ signaltest(normalized_tone)
 for i in range(0, len(mixed_tone)):
     mixed_tone[i] = np.random.uniform(10) #normal -Gaussian
 #Вычетание среденего для устранения пика
-#mixed_tone-=np.mean(mixed_tone)
+mixed_tone-=np.mean(mixed_tone)
 normalized_tone = np.int16(((mixed_tone) / mixed_tone.max()) * 32767)
-#signaltest(normalized_tone)
+signaltest(normalized_tone)
 #summ of signals
 #синусоидальный сгенерированный тон 400 Гц, искаженный тоном 4000 Гц
 mixed_tone = noise_tone * 0.1 + nice_tone
